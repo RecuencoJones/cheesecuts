@@ -5,31 +5,30 @@
         <span>No shortcuts found! Edit <pre>shortcuts.yaml</pre> to get started.</span>
       </div>
       <template v-else>
-        <article v-for="group in groups" class="shortcuts-group">
-          <h3 class="shortucts-group__title">{{ group.name }}</h3>
-          <ul class="shortcuts-list">
-            <li class="shortcuts-list__item" v-for="item in group.items" :key="item.keys + item.name">
-              <span>{{ item.name }}</span>
-              <pre>{{ item.keys }}</pre>
-            </li>
-          </ul>
-        </article>
+        <input class="shortcuts-search" v-model="search" placeholder="Search" autofocus />
+        <ShortcutGroup v-for="group in groups" :key="group.name" :name="group.name" :items="filter(group.items)" />
       </template>
     </main>
   </div>
 </template>
 
 <script>
+import ShortcutGroup from './ShortcutGroup.vue';
+
 export default {
+  components: {
+    ShortcutGroup
+  },
   data() {
     return {
+      search: '',
       groups: []
-    }
+    };
   },
   computed: {
     commandOrControl() {
       return window.os === 'darwin' ? '⌘' : 'Ctrl';
-    }
+    },
   },
   methods: {
     async loadShortcuts() {
@@ -39,12 +38,23 @@ export default {
     },
     async handleEditShortcuts() {
       api.editShortcuts();
+    },
+
+    filter(items) {
+      const searchTerm = this.search.toLowerCase();
+
+      return searchTerm
+        ? items.filter((item) =>
+          item.name.toLowerCase().includes(searchTerm) ||
+          item.keys.toLowerCase().includes(searchTerm)
+        )
+        : items;
     }
   },
   async mounted() {
     await this.loadShortcuts();
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -69,6 +79,13 @@ export default {
   font-size: .85rem;
   font-family: Arial, Helvetica, sans-serif;
 
+  .shortcuts-search {
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    padding: .25rem;
+  }
+
   .no-shortcuts-config {
     display: flex;
     justify-content: center;
@@ -77,59 +94,6 @@ export default {
 
     pre {
       display: inline;
-    }
-  }
-
-  .shortcuts-group {
-
-    .shortucts-group__title {
-      margin: 1rem 0 .25rem;
-      text-align: center;
-    }
-
-    .shortcuts-list {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin: 0;
-
-      .shortcuts-list__item {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        padding: .25rem .5rem;
-
-        &:first-child {
-          border-start-start-radius: 5px;
-          border-start-end-radius: 5px;
-        }
-
-        &:last-child {
-          border-end-start-radius: 5px;
-          border-end-end-radius: 5px;
-        }
-
-        &:nth-child(even) {
-          background-color: #efefef;
-        }
-
-        &:nth-child(odd) {
-          background-color: #dedede;
-        }
-
-        > span {
-          display: block;
-          width: auto;
-        }
-
-        > pre {
-          display: block;
-          width: auto;
-          margin: 0;
-        }
-      }
     }
   }
 }
