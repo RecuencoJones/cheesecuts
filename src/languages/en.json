@@ -1,0 +1,17 @@
+{
+  "app": {
+    "name": "Cheesecuts",
+    "description": "Keyboard Shortcuts CheatSheet"
+  },
+  "menu": {
+    "file": {
+      "preferences": "Preferences",
+      "empty": "(empty)"
+    },
+    "help": {
+      "viewlogs": "View logs",
+      "openappdatalocation": "Open app folder",
+      "openingithub": "Open in GitHub"
+    }
+  }
+}

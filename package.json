@@ -1,0 +1,58 @@
+{
+  "name": "cheesecuts",
+  "productName": "Cheesecuts",
+  "description": "Keyboard Shortcuts CheatSheet",
+  "version": "0.1.0",
+  "main": "src/background/main.js",
+  "author": "David Recuenco",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently npm:dev:vite npm:dev:electron",
+    "prestart:prod": "npm run build:vite",
+    "start:prod": "electron-forge start",
+    "dev:vite": "cross-env MODE=development vite",
+    "dev:electron": "cross-env MODE=development electronmon .",
+    "build:vite": "vite build",
+    "prepackage": "npm run build:vite",
+    "package": "electron-forge package",
+    "premake": "npm run build:vite",
+    "lint": "eslint .",
+    "make": "electron-forge make"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "fix-path": "3.0.0",
+    "i18next": "22.0.6",
+    "js-yaml": "4.1.0",
+    "winston": "3.8.2"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.3",
+    "@electron-forge/maker-deb": "^6.0.3",
+    "@electron-forge/maker-rpm": "^6.0.3",
+    "@electron-forge/maker-squirrel": "^6.0.3",
+    "@electron-forge/maker-zip": "^6.0.3",
+    "@highlightjs/vue-plugin": "2.1.0",
+    "@intlify/vite-plugin-vue-i18n": "6.0.3",
+    "@types/luxon": "3.1.0",
+    "@vitejs/plugin-vue": "3.2.0",
+    "bootstrap-icons": "1.10.2",
+    "concurrently": "7.6.0",
+    "cross-env": "7.0.3",
+    "electron": "21.3.0",
+    "electronmon": "2.0.2",
+    "eslint": "8.28.0",
+    "luxon": "3.1.0",
+    "mitt": "3.0.0",
+    "sass": "1.56.1",
+    "vite": "3.2.4",
+    "vue": "3.2.45",
+    "vue-i18n": "9.2.2",
+    "vue-router": "4.1.6"
+  },
+  "electronmon": {
+    "patterns": [
+      "!src/foreground/**/*"
+    ]
+  }
+}
