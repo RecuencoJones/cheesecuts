@@ -17,6 +17,7 @@ if (process.platform === 'darwin') {
 
 function createWindow() {
   const window = new BrowserWindow({
+    icon: resolve(__dirname, '..', '..', 'public', 'logo.ico'),
     webPreferences: {
       preload: resolve(__dirname, 'preload.js')
     }
