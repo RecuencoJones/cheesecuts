@@ -1,15 +1,20 @@
 <template>
   <div class="app-wrapper theme-default">
     <main class="app-view shortcuts">
-      <article v-for="group in groups" class="shortcuts-group">
-        <h3 class="shortucts-group__title">{{ group.name }}</h3>
-        <ul class="shortcuts-list">
-          <li class="shortcuts-list__item" v-for="item in group.items" :key="item.keys + item.name">
-            <span>{{ item.name }}</span>
-            <pre>{{ item.keys }}</pre>
-          </li>
-        </ul>
-      </article>
+      <div class="no-shortcuts-config" v-if="!groups || !groups.length" @click="handleEditShortcuts">
+        <span>No shortcuts found! Edit <pre>shortcuts.yaml</pre> to get started.</span>
+      </div>
+      <template v-else>
+        <article v-for="group in groups" class="shortcuts-group">
+          <h3 class="shortucts-group__title">{{ group.name }}</h3>
+          <ul class="shortcuts-list">
+            <li class="shortcuts-list__item" v-for="item in group.items" :key="item.keys + item.name">
+              <span>{{ item.name }}</span>
+              <pre>{{ item.keys }}</pre>
+            </li>
+          </ul>
+        </article>
+      </template>
     </main>
   </div>
 </template>
@@ -31,6 +36,9 @@ export default {
       const groups = await api.getShortcuts();
 
       this.groups = groups;
+    },
+    async handleEditShortcuts() {
+      api.editShortcuts();
     }
   },
   async mounted() {
@@ -60,6 +68,17 @@ export default {
   padding: 0 1rem;
   font-size: .85rem;
   font-family: Arial, Helvetica, sans-serif;
+
+  .no-shortcuts-config {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    pre {
+      display: inline;
+    }
+  }
 
   .shortcuts-group {
 

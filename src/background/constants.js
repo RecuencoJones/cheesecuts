@@ -7,4 +7,4 @@ const projectRoot = resolve(__dirname, '..', '..');
 const shortcutFiles = [ 'shortcuts.yaml', 'shortcuts.yml' ];
 const logFile = 'log.txt';
 
-module.exports = { isDevelopment, userAppHome, projectRoot, shortcutsFiles: shortcutFiles, logFile };
+module.exports = { isDevelopment, userAppHome, projectRoot, shortcutFiles, logFile };

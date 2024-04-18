@@ -1,15 +1,21 @@
 const { logger } = require('../logger');
-const { getShortcuts } = require('../services/shortcuts');
+const { getShortcuts, editShortcuts } = require('../services/shortcuts');
 
 /**
  * @param {import('electron').IpcMain} ipc bus
  */
 function useShortcutsHandler(ipc) {
   ipc.handle('getShortcuts', async () => {
-    logger.info('[ipc] Get shortcuts');
+    logger.info('[ipc.getShortcuts] Get shortcuts');
     const groups = await getShortcuts();
 
     return groups;
+  });
+
+  ipc.handle('editShortcuts', async () => {
+    logger.info('[ipc.editShortcuts] Edit shortcuts');
+
+    await editShortcuts();
   });
 }
 

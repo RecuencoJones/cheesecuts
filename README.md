@@ -1,6 +1,6 @@
 # Cheesecuts
 
-Apparently I had to write \~400 lines of code to display a blank page with a summary of shortcuts. Yes.
+Apparently I had to write \~500 lines of code to display a blank page with a summary of shortcuts. Yes.
 
 ## Usage
 

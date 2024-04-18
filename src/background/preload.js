@@ -11,6 +11,7 @@ contextBridge.exposeInMainWorld('os', process.platform);
 
 contextBridge.exposeInMainWorld('api', {
   ...useLiteralInvokify(
-    'getShortcuts'
+    'getShortcuts',
+    'editShortcuts'
   )
 });
