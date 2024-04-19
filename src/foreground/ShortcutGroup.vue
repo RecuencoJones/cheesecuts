@@ -62,6 +62,7 @@ export default {
       }
 
       > pre {
+        font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         display: block;
         width: auto;
         margin: 0;

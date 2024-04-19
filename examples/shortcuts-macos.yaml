@@ -1,0 +1,92 @@
+# Modifiers cheatsheet:
+# Command: ⌘
+# Shift: ⇧
+# Option: ⌥
+# Control: ⌃
+# Return: ↩︎
+# Spacebar: ␣
+# Backspace: ⌫
+# Tab: ⇥
+# Arrows: ↑ ↓ ← →
+# Other: ␛ ␡
+
+groups:
+- Windows
+- Clipboard
+- Cursor
+- Screenshot
+- MS Teams
+
+shortcuts:
+
+# Window management with Rectangle.app
+- name: Fullscreen
+  keys: ⌘⌃⌥↩︎
+  group: Windows
+- name: Left half / slide window left
+  keys: ⌘⌃⌥←
+  group: Windows
+- name: Right half / slide window right
+  keys: ⌘⌃⌥→
+  group: Windows
+- name: Left third (landscape) / Top third (portrait)
+  keys: ⌃⌥D
+  group: Windows
+- name: Middle third
+  keys: ⌃⌥F
+  group: Windows
+- name: Right third (landscape) / Bottom third (portrait)
+  keys: ⌃⌥G
+  group: Windows
+- name: Top left quarter
+  keys: ⌘⌃⌥1
+  group: Windows
+- name: Top right quarter
+  keys: ⌘⌃⌥2
+  group: Windows
+- name: Bottom left quarter
+  keys: ⌘⌃⌥3
+  group: Windows
+- name: Bottom right quarter
+  keys: ⌘⌃⌥4
+  group: Windows
+
+# Clipboard management with Maccy.app
+- name: Paste from clipboard history
+  keys: ⌘⇧V
+  group: Clipboard
+
+# Clipboard management with CatchMouse.app
+- name: Move cursor to main screen
+  keys: ⌘⌃⌥M
+  group: Cursor
+- name: Move cursor to secondary screen
+  keys: ⌘⌃⌥,
+  group: Cursor
+
+
+- name: Alfred
+  keys: ⌘ Space
+- name: AltTab
+  keys: ⌘⇥
+- name: Quit app
+  keys: ⌘Q
+
+
+- name: Fullscreen Screenshot (autosave)
+  keys: ⌘⇧3
+  group: Screenshot
+- name: Selection Screenshot (autosave)
+  keys: ⌘⇧4
+  group: Screenshot
+- name: Selection Screenshot (clipboard)
+  keys: ⌘⌃⇧4
+  group: Screenshot
+
+
+- name: Toggle Mute
+  keys: ⌘⇧M
+  group: MS Teams
+- name: End Call
+  keys: ⌘⇧H
+  group: MS Teams
