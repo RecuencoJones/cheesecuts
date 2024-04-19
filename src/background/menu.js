@@ -7,7 +7,18 @@ async function createAppMenuTemplate() {
 
   /** @type {Array<import('electron').MenuItemConstructorOptions | import('electron'.MenuItem>} */
   const appMenu = [
-    { role: 'fileMenu' },
+    {
+      role: 'fileMenu',
+      submenu: [
+        {
+          role: 'editShortcuts',
+          label: i18n.t('menu.file.editshortcuts'),
+          click() {
+            ipcMain.emit('editShortcuts');
+          }
+        }
+      ]
+    },
     { role: 'editMenu' },
     { role: 'viewMenu' },
     { role: 'windowMenu' },

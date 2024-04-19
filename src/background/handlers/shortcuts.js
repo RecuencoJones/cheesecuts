@@ -12,11 +12,14 @@ function useShortcutsHandler(ipc) {
     return groups;
   });
 
-  ipc.handle('editShortcuts', async () => {
+  async function editShortcutsHandler() {
     logger.info('[ipc.editShortcuts] Edit shortcuts');
 
     await editShortcuts();
-  });
+  }
+
+  ipc.on('editShortcuts', editShortcutsHandler);
+  ipc.handle('editShortcuts', editShortcutsHandler);
 }
 
 module.exports = { useShortcutsHandler };

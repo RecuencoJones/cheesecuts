@@ -5,6 +5,7 @@
   },
   "menu": {
     "file": {
+      "editshortcuts": "Edit Shortcuts",
       "preferences": "Preferences",
       "empty": "(empty)"
     },
