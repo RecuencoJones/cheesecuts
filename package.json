@@ -2,7 +2,7 @@
   "name": "cheesecuts",
   "productName": "Cheesecuts",
   "description": "Keyboard Shortcuts CheatSheet",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "src/background/main.js",
   "author": "David Recuenco",
   "license": "MIT",
@@ -53,7 +53,8 @@
   },
   "electronmon": {
     "patterns": [
-      "!src/foreground/**/*"
+      "!src/foreground/**/*",
+      "!examples/**/*"
     ]
   }
 }
