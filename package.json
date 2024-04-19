@@ -2,7 +2,7 @@
   "name": "cheesecuts",
   "productName": "Cheesecuts",
   "description": "Keyboard Shortcuts CheatSheet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "src/background/main.js",
   "author": "David Recuenco",
   "license": "MIT",
